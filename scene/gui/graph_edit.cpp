@@ -293,15 +293,15 @@ void GraphEdit::_notification(int p_what) {
 		Size2 hmin = h_scroll->get_combined_minimum_size();
 		Size2 vmin = v_scroll->get_combined_minimum_size();
 
-		v_scroll->set_anchor_and_margin(MARGIN_LEFT, ANCHOR_END, -vmin.width);
-		v_scroll->set_anchor_and_margin(MARGIN_RIGHT, ANCHOR_END, 0);
-		v_scroll->set_anchor_and_margin(MARGIN_TOP, ANCHOR_BEGIN, 0);
-		v_scroll->set_anchor_and_margin(MARGIN_BOTTOM, ANCHOR_END, 0);
-
 		h_scroll->set_anchor_and_margin(MARGIN_LEFT, ANCHOR_BEGIN, 0);
 		h_scroll->set_anchor_and_margin(MARGIN_RIGHT, ANCHOR_END, 0);
 		h_scroll->set_anchor_and_margin(MARGIN_TOP, ANCHOR_END, -hmin.height);
 		h_scroll->set_anchor_and_margin(MARGIN_BOTTOM, ANCHOR_END, 0);
+
+		v_scroll->set_anchor_and_margin(MARGIN_LEFT, ANCHOR_END, -vmin.width);
+		v_scroll->set_anchor_and_margin(MARGIN_RIGHT, ANCHOR_END, 0);
+		v_scroll->set_anchor_and_margin(MARGIN_TOP, ANCHOR_BEGIN, 0);
+		v_scroll->set_anchor_and_margin(MARGIN_BOTTOM, ANCHOR_END, 0);
 	}
 	if (p_what == NOTIFICATION_DRAW) {
 
@@ -1359,6 +1359,7 @@ GraphEdit::GraphEdit() {
 	v_scroll = memnew(VScrollBar);
 	v_scroll->set_name("_v_scroll");
 	top_layer->add_child(v_scroll);
+
 	updating = false;
 	connecting = false;
 	right_disconnects = false;
